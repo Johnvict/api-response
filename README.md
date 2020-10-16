@@ -48,10 +48,23 @@ class ExampleController extends Controller
 
 	// To return a response for a failed process message with status code: "02" custom error message
     public function customErrorMessage(Request $request) {
+		/**
+		 * some opertions occured and the request failed, so we need to send a custom message
+		 * */
 		$error = 'Some Error message';
 		return self::returnFailed($error);
-		// return self::returnFailed(); //Response will be sent with the default error message: "request failed"
 	}
+	
+	// To return a response for a failed process message with status code: "02" and default error message
+	//Response will be sent with the default error message: "request failed"
+    public function requestFailed(Request $request) {
+		/**
+		 * some opertions occured and the request failed
+		 * */
+		return self::returnFailed(); 
+	}
+
+
 }
 ```
 
